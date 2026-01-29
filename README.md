@@ -7,8 +7,6 @@ This service acts as a proxy to the OMDb API and provides persistent storage for
 - Movie comparisons
 - Recent comparisons history
 
-Built as part of the *Personal Movie DB* take-home assignment.
-
 ---
 
 ## 🚀 Tech Stack
