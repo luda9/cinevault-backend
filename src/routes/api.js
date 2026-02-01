@@ -243,13 +243,13 @@ router.post("/watchlist", async (ctx) => {
     ctx.body = inserted;
   } catch (err) {
   console.error("Database error details:", err);
-  ctx.status = 500;
-  ctx.body = {
-    error: "Database error",
-    details: err.message,
-    code: err.code
-  };
-}
+    ctx.status = 500;
+    ctx.body = {
+      error: "Database error",
+      details: err.message,
+      code: err.code
+    };
+  }
 });
 
 router.get("/watchlist", async (ctx) => {
@@ -627,8 +627,13 @@ router.post("/compare", async (ctx) => {
       movieCount: movies.length,
     };
   } catch (err) {
+    console.error("Database error details:", err);
     ctx.status = 500;
-    ctx.body = { error: "Failed to fetch movie data" };
+    ctx.body = {
+      error: "Database error",
+      details: err.message,
+      code: err.code
+    };
   }
 });
 
