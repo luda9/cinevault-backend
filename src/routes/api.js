@@ -242,9 +242,14 @@ router.post("/watchlist", async (ctx) => {
     ctx.status = 201;
     ctx.body = inserted;
   } catch (err) {
-    ctx.status = 500;
-    ctx.body = { error: "Database error" };
-  }
+  console.error("Database error details:", err);
+  ctx.status = 500;
+  ctx.body = {
+    error: "Database error",
+    details: err.message,
+    code: err.code
+  };
+}
 });
 
 router.get("/watchlist", async (ctx) => {
@@ -463,9 +468,14 @@ router.patch("/watchlist/:imdbId", async (ctx) => {
       lastUpdated: new Date().toISOString(),
     };
   } catch (err) {
-    ctx.status = 500;
-    ctx.body = { error: "Database error" };
-  }
+  console.error("Database error details:", err);
+  ctx.status = 500;
+  ctx.body = {
+    error: "Database error",
+    details: err.message,
+    code: err.code
+  };
+}
 });
 
 router.delete("/watchlist/:imdbId", async (ctx) => {
@@ -494,9 +504,14 @@ router.delete("/watchlist/:imdbId", async (ctx) => {
 
     ctx.status = 204;
   } catch (err) {
-    ctx.status = 500;
-    ctx.body = { error: "Database error" };
-  }
+  console.error("Database error details:", err);
+  ctx.status = 500;
+  ctx.body = {
+    error: "Database error",
+    details: err.message,
+    code: err.code
+  };
+}
 });
 
 router.post("/compare", async (ctx) => {
