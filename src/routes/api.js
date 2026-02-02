@@ -640,7 +640,7 @@ router.post("/compare", async (ctx) => {
 router.get("/comparisons/recent", async (ctx) => {
   try {
     const [rows] = await db.query(
-      "SELECT * FROM comparisons ORDER BY created_at DESC LIMIT 10"
+      "SELECT * FROM comparisons ORDER BY created_at DESC, id DESC LIMIT 10;"
     );
 
     const results = [];
